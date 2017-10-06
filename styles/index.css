@@ -1,11 +1,6 @@
 html {
   font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
-
-  background: url(../images/MejiaFamily.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: black;
 }
 
 .menu-button {
@@ -26,7 +21,7 @@ html {
   bottom: 0;
   width: 0;
   transition: all 0.3s ease;
-  background-color: black;
+  background-color: #f0f0f0;
   overflow: hidden;
 }
 
@@ -37,14 +32,14 @@ html {
 
 .menu-item {
   display: block;
-  color: white;
+  color: #0F0F0F;
   text-decoration: none;
   font-size: 1.5rem;
   padding: 1rem;
 }
 
 .menu-item:hover {
-  background-color: #0f0f0f;
+  background-color: white;
 }
 
 .menu-item .fa {
@@ -52,15 +47,10 @@ html {
 }
 
 .cats-eye-logo {
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
-  margin: 10px;
-  display: none;
-}
-
-.cats-eye-logo.mobile {
-  display: block;
   margin: auto;
+  display: block;
 }
 
 @media (min-width: 1350px) {
@@ -68,14 +58,5 @@ html {
     max-width: 1300px;
     margin: auto;
     padding: 1rem;
-  }
-
-  .cats-eye-logo {
-    display: inline-block;
-  }
-
-  .cats-eye-logo.mobile {
-    display: inline-block;
-    margin: 10px;
   }
 }
