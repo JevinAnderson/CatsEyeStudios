@@ -8,22 +8,6 @@ html {
   background-size: cover;
 }
 
-.content {
-  max-width: 1200px;
-  margin: auto;
-  padding: 1rem;
-}
-
-.title {
-  text-align: center;
-}
-
-@media(min-width:768px){
-  .title {
-    font-size: 4rem;
-  }
-}
-
 .menu-button {
   background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
   width: 1.5rem;
@@ -60,9 +44,38 @@ html {
 }
 
 .menu-item:hover {
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
 }
 
 .menu-item .fa {
   width: 2.5rem;
+}
+
+.cats-eye-logo {
+  max-width: 300px;
+  height: auto;
+  margin: 10px;
+  display: none;
+}
+
+.cats-eye-logo.mobile {
+  display: block;
+  margin: auto;
+}
+
+@media (min-width: 1350px) {
+  .content {
+    max-width: 1300px;
+    margin: auto;
+    padding: 1rem;
+  }
+
+  .cats-eye-logo {
+    display: inline-block;
+  }
+
+  .cats-eye-logo.mobile {
+    display: inline-block;
+    margin: 10px;
+  }
 }
