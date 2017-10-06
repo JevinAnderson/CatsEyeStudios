@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Hello! I've recently turned a lifelong hobby of photography into a business! I'm #CatsEyeStudiosAZ on Facebook and Instagram! As I expand my portfolio I will be offering a 50% off introductory discount on all sessions and products! As a full service portrait photographer I service the East Valley and offer a la carte folio boxes, albums, metals, canvases and premium professional prints. All products are shipped to me for quality control and then I will hand deliver them to you. If you want to be surrounded by beautiful art pieces that happen to be keepsake memories of the ones you hold dearest, contact me to set up a complimentary in-person consultation.">
+  <meta name="author" content="Catriona Simental">
+  <link href="styles/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Cat's Eye Studios</title>
+</head>
+
+<body>
+  <main class="content">
+    <h1 class="title">Cat's Eye Studios</h1>
+    <div class="menu-button"></div>
+    <div class="menu">
+      <div class="menu-items">
+        <a href="http://facebook.com/catseyestudiosaz" class="menu-item" target="_blank"><i class="fa fa-facebook"></i>facebook</a>
+        <a href="" class="menu-item" target="_blank"><i class="fa fa-instagram"></i>instagram</a>
+        <a href="mailto:contact@catseyestudios.com" class="menu-item"><i class="fa fa-envelope"></i>email</a>
+        <a href="tel:602.345.1740" class="menu-item"><i class="fa fa-phone"></i>phone</a>
+      </div>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    function menuIsOpen() {
+      return $('.menu').hasClass('expanded');
+    }
+
+    function collapse() {
+      if (menuIsOpen()) {
+        $('.menu').removeClass('expanded');
+      }
+    }
+
+    function expand() {
+      if (!menuIsOpen()) {
+        $('.menu').addClass('expanded');
+      }
+    }
+
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) {
+        collapse();
+      }
+    });
+
+    $('*').on('click', collapse);
+
+    $('.menu-button').on('click', function(event) {
+      event.stopPropagation();
+
+      expand();
+    });
+
+  </script>
+</body>
+
+</html>
