@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './disclaimer.scss';
+import './content-header.scss';
 import { join } from '../../utilities/component';
 
-const Disclaimer = ({ children, className, centered, ...rest }) => (
-  <p
+const ContentHeader = ({ centered, children, className, ...rest }) => (
+  <h2
     className={join(
-      'shared-disclaimer',
-      centered && 'shared-disclaimer--centered',
+      'shared-content-header',
+      centered && 'shared-content-header--centered',
       className
     )}
-    {...rest}
   >
     {children}
-  </p>
+  </h2>
 );
 
-Disclaimer.propTypes = {
+ContentHeader.propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.any,
   className: PropTypes.string
 };
 
-export default Disclaimer;
+export default ContentHeader;

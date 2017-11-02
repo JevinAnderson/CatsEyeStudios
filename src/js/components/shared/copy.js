@@ -22,6 +22,4 @@ Copy.propTypes = {
   className: PropTypes.string
 };
 
-Copy.defaultProps = {};
-
 export default Copy;
