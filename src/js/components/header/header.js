@@ -10,7 +10,7 @@ function headerContentFromPath(path) {
     case '/index.html':
       return `Cat's Eye Studios`;
     case '/your-photographer.html':
-      return 'Meet Your Photographer';
+      return 'A Note From Your Photographer';
     case '/the-experience.html':
       return 'Your Personalized Experience';
     case '/contact-us.html':

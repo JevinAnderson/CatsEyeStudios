@@ -20,7 +20,7 @@ const Application = props => (
         <Route path="/index.html" exact component={Home} />
         <Route path="/your-photographer.html" exact component={YourPhotographer} />
         <Route path="/the-experience.html" exact component={TheExperience} />
-        <Route path="/contact-us.html" exact component={ContactUs} />
+        <Route path="/contact-us.html" exact component={ComingSoon} />
       </Switch>
     </div>
   </BrowserRouter>

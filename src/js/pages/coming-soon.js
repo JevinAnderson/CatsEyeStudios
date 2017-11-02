@@ -15,7 +15,7 @@ class ComingSoon extends PureComponent {
   }
 
   randomInitialState = () => {
-    console.log('creating random initial state')
+    console.log('creating random initial state');
     let count = randomNumberLessThan(100);
     let paragraphs = [];
 
@@ -30,7 +30,10 @@ class ComingSoon extends PureComponent {
     return (
       <div className="coming-soon">
         <Content>
-          <p>This page is coming soon... Meanwhile, here is some Lorem Ipsum</p>
+          <p>This page is coming soon...</p>
+          <br />
+          <p>Meanwhile, here is some Lorem Ipsum</p>
+          <br />
           {this.state.paragraphs}
         </Content>
       </div>

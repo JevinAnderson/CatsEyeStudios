@@ -17,7 +17,6 @@ const YourPhotographer = props => (
         alt="Portrait of the photographer"
         className="your-photographer__portrait"
       />
-      <ContentHeader centered>A NOTE FROM YOUR PHOTOGRAPHER</ContentHeader>
       <PageCopy>
         Hello! My name is Catriona Simental but feel free to call me Cat - my
         friends do!
