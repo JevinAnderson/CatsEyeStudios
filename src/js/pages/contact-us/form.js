@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ContactUs extends Component {
-  state = {
-    clickCount: 0
-  }
+import './form.scss';
 
-  onClick = event => {
-    this.setState(prevState => ({
-      clickCount: prevState.clickCount + 1
-    }));
-  }
+class Form extends Component {
+  state = {};
   // componentWillMount(){}
   // componentDidMount(){}
   // componentWillReceiveProps(nextProps) {}
@@ -20,15 +14,13 @@ class ContactUs extends Component {
   // componentWillUnmount() {}
   render() {
     return (
-      <div className="Component Class" onClick={this.onClick}>
-        Contact us coming soon...
-      </div>
+      <form className="contact-us__form">contact us form coming soon</form>
     );
   }
 }
 
-ContactUs.propTypes = {};
+Form.propTypes = {};
 
-ContactUs.defaultProps = {};
+Form.defaultProps = {};
 
-export default ContactUs;
+export default Form;

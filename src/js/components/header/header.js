@@ -14,7 +14,7 @@ function headerContentFromPath(path) {
     case '/the-experience.html':
       return 'Your Personalized Experience';
     case '/contact-us.html':
-      return 'Contact Us';
+      return 'Your Complimentary Consultation';
     default:
       return;
   }
