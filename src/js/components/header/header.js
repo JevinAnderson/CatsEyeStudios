@@ -8,7 +8,7 @@ function headerContentFromPath(path) {
   switch (path) {
     case '/':
     case '/index.html':
-      return `Cat's Eye Studios`;
+      return `CAT'S EYE STUDIOS`;
     case '/your-photographer.html':
       return 'A Note From Your Photographer';
     case '/the-experience.html':
