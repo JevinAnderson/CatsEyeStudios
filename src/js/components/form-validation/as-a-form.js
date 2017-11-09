@@ -18,7 +18,6 @@ const asAForm = options => WrappedComponent => {
 
     updateValidity = () => {
       const isValid = this.authors.every(author => author.getValidity());
-      console.log('as-a-form updateValidity isValid', isValid);
 
       if (isValid !== this.state.isValid) {
         this.setState({ isValid }, () => {

@@ -1,24 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
+import { connect } from 'react-redux';
 
 import './contact-us.scss';
+import * as Actions from '../../actions/contact-form';
 import Content from '../../components/shared/content';
 import Copy from '../../components/shared/copy';
 import Disclaimer from '../../components/shared/disclaimer';
 import Form from './form';
-
-const CONTACT_FORM_STORAGE_KEY = 'CATSEYESTUDIOS_CONTACT_US_FORM_DATA';
-
-const persistForm = throttle(data => {
-  console.log('persistForm data', data);
-  try {
-    const json = JSON.stringify(data);
-    localStorage.setItem(CONTACT_FORM_STORAGE_KEY, json);
-  } catch (error) {
-    console.error(`Error persisting contact us form: ${error}`);
-  }
-}, 1000);
 
 const ContactCopy = ({ children }) => (
   <Copy className="contact-us__copy" centered>
@@ -27,57 +17,17 @@ const ContactCopy = ({ children }) => (
 );
 
 class ContactUs extends Component {
-  state = {
-    clickCount: 0,
-    formData: {}
-  };
-
-  componentDidMount() {
-    this.readForm();
-  }
-
-  readForm = () => {
-    try {
-      const json = localStorage.getItem(CONTACT_FORM_STORAGE_KEY);
-      const formData = JSON.parse(json) || {};
-
-      this.setState({ formData });
-    } catch (error) {
-      console.error(
-        `Error reading contact us form from local storage: ${error}`
-      );
-    }
-  };
-
   clear = () => {
-    this.updateForm({});
-  };
-
-  updateForm = formData => {
-    this.setState({formData});
-
-    persistForm(formData);
+    this.props.setContactFormData({});
   };
 
   submit = () => {
     console.log('Submit!');
-  }
-
-  onClick = event => {
-    this.setState(prevState => ({
-      clickCount: prevState.clickCount + 1
-    }));
   };
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillReceiveProps(nextProps) {}
-  // shouldComponentUpdate(nextProps, nextState) { return true; }
-  // componentWillUpdate(nextProps, nextState) {}
-  // componentDidUpdate(prevProps, prevState) {}
-  // componentWillUnmount() {}
+
   render() {
-    const { updateForm, submit } = this;
-    const { formData } = this.state;
+    const { form, setContactFormData } = this.props;
+    const { submit } = this;
 
     return (
       <div className="contact-us" onClick={this.onClick}>
@@ -96,15 +46,18 @@ class ContactUs extends Component {
             investment and go over our contract. Thank you for your
             consideration and I look forward to getting to know you!
           </ContactCopy>
-          <Form value={formData} update={updateForm} submit={submit} />
+          <Form value={form} update={setContactFormData} submit={submit} />
         </Content>
       </div>
     );
   }
 }
 
-ContactUs.propTypes = {};
+ContactUs.propTypes = {
+  form: PropTypes.object,
+  setContactFormData: PropTypes.func
+};
 
-ContactUs.defaultProps = {};
+const mapStateToProps = state => ({ contactForm }) => ({ form: contactForm });
 
-export default ContactUs;
+export default connect(mapStateToProps, Actions)(ContactUs);

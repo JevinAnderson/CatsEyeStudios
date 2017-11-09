@@ -19,16 +19,17 @@ const config = {
       { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
     ]
   },
-  plugins: []
-};
-
-if (IS_PRODUCTION) {
-  config.plugins.push(
+  plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
     }),
+  ]
+};
+
+if (IS_PRODUCTION) {
+  config.plugins.push(
     new webpack.optimize.UglifyJsPlugin()
   );
 } else {
