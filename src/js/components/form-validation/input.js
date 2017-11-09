@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import './input.scss';
 import asAnInput from './as-an-input';
 import { join } from '../../utilities/component';
 
@@ -53,7 +54,7 @@ class Input extends PureComponent {
   };
 
   render() {
-    const { value, className } = this.props;
+    const { value, className, update, validator, formIsValid, setValidity, ...rest } = this.props;
     const { messages, isValid, showMessages } = this.state;
     const { onBlur, onChange } = this;
 
@@ -66,10 +67,11 @@ class Input extends PureComponent {
             </p>
           )}
         <input
+          {...rest}
           value={value}
           onChange={onChange}
           onBlur={onBlur}
-          type="text"
+          type={rest.type || 'text'}
           className="form-validation__input__input"
         />
       </span>
@@ -81,7 +83,8 @@ Input.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
   update: PropTypes.func,
-  validator: PropTypes.func
+  validator: PropTypes.func,
+  placeholder: PropTypes.string
 };
 
 export default asAnInput()(Input);
