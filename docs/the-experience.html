@@ -23,57 +23,18 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
-  <title>Cat's Eye Studios</title>
-  <link href="styles/index.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <title>Your personalized experience</title>
+  <style>
+    html {
+      background-color: black;
+    }
+  </style>
 </head>
 
 <body>
-  <main class="content">
-    <img src="images/logo-black-bg.jpg" alt="Cats Eye Studios Logo" class="cats-eye-logo">
-    <div class="menu-button"></div>
-    <div class="menu">
-      <div class="menu-items">
-        <a href="https://www.facebook.com/CatsEyeStudiosAZ/" class="menu-item" target="_blank"><i class="fa fa-facebook"></i>facebook</a>
-        <a href="https://www.instagram.com/CatsEyeStudiosAZ/" class="menu-item" target="_blank"><i class="fa fa-instagram"></i>instagram</a>
-        <a href="mailto:info@catseyestudios.com" class="menu-item"><i class="fa fa-envelope"></i>email</a>
-        <a href="tel:602.345.1740" class="menu-item"><i class="fa fa-phone"></i>phone</a>
-      </div>
-    </div>
-  </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    function menuIsOpen() {
-      return $('.menu').hasClass('expanded');
-    }
-
-    function collapse() {
-      if (menuIsOpen()) {
-        $('.menu').removeClass('expanded');
-      }
-    }
-
-    function expand() {
-      if (!menuIsOpen()) {
-        $('.menu').addClass('expanded');
-      }
-    }
-
-    $(document).keyup(function(e) {
-      if (e.keyCode === 27) {
-        collapse();
-      }
-    });
-
-    $('*').on('click', collapse);
-
-    $('.menu-button').on('click', function(event) {
-      event.stopPropagation();
-
-      expand();
-    });
-
-  </script>
+  <main id="application-entry-point"></main>
+  <script src="js/bundle.js" async defer></script>
 </body>
 
 </html>

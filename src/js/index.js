@@ -1,3 +1,8 @@
-import './index.scss';
+import React from 'react';
+import { render } from 'react-dom';
 
-console.log('Hello world');
+import './index.scss';
+import Application from './application';
+
+const node = document.getElementById('application-entry-point');
+render(<Application />, node);
