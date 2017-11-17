@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const asAnObserver = (options = WrappedComponent => {
+const asAnObserver = options => WrappedComponent => {
   class FormObserver extends Component {
     constructor(props, context) {
       super(props, context);
@@ -45,4 +45,6 @@ const asAnObserver = (options = WrappedComponent => {
   };
 
   return FormObserver;
-});
+};
+
+export default asAnObserver;

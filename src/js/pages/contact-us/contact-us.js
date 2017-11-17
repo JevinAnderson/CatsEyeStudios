@@ -10,6 +10,7 @@ import Copy from '../../components/shared/copy';
 import Disclaimer from '../../components/shared/disclaimer';
 import Form from './form';
 import Socials from './socials';
+import { postJSON } from '../../utilities/ajax';
 
 const ContactCopy = ({ children }) => (
   <Copy className="contact-us__copy" centered>
@@ -22,8 +23,21 @@ class ContactUs extends Component {
     this.props.setContactFormData({});
   };
 
-  submit = () => {
-    console.log('Submit!');
+  submit = event => {
+    event.preventDefault();
+
+    postJSON(
+      'http://api.jevinanderson.com/cats-eye-studios/contact',
+      this.props.form
+    )
+      .then(results => {
+        console.log('submit results', results);
+      })
+      .catch(reason => {
+        console.log('subit reason', reason);
+      });
+
+    console.log('submit this.props.form', this.props.form);
   };
 
   render() {
@@ -47,7 +61,7 @@ class ContactUs extends Component {
             investment and go over our contract. Thank you for your
             consideration and I look forward to getting to know you!
           </ContactCopy>
-          {/* <Form value={form} update={setContactFormData} submit={submit} /> */}
+          <Form value={form} update={setContactFormData} submit={submit} />
           <Socials />
         </Content>
       </div>

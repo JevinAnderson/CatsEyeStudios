@@ -8,6 +8,7 @@ import {
 } from '../../components/form-validation/build-validator';
 import Form from '../../components/form-validation/form';
 import Input from '../../components/form-validation/input';
+import Submit from '../../components/form-validation/submit'
 import Select from '../../components/shared/select';
 
 class ContactForm extends Component {
@@ -32,12 +33,12 @@ class ContactForm extends Component {
     });
   };
 
-  updateFirstName = firstName => {
-    this.update('firstName', firstName);
+  updateFirst = first => {
+    this.update('first', first);
   };
 
-  updateLastName = lastName => {
-    this.update('lastName', lastName);
+  updateLast = last => {
+    this.update('last', last);
   };
 
   updateEmail = email => {
@@ -56,12 +57,16 @@ class ContactForm extends Component {
     this.update('contactPreference', value);
   };
 
-  setSessionType = ({ target: { value } }) => {
-    this.update('sessionType', value);
+  setSession = ({ target: { value } }) => {
+    this.update('session', value);
   };
 
   updateReferer = referer => {
     this.update('referer', referer);
+  };
+
+  updateComments = comments => {
+    this.update('comments', comments);
   };
 
   noValidation = () => [];
@@ -69,19 +74,19 @@ class ContactForm extends Component {
   createNameValidator = () => Validator(isRequiredValidator).build();
 
   render() {
-    const { value } = this.props;
+    const { submit, value } = this.props;
     return (
       <Form className="contact-us__form" autoComplete="on">
         <Input
-          value={value.firstName || ''}
-          update={this.updateFirstName}
+          value={value.first || ''}
+          update={this.updateFirst}
           validator={this.nameValidator}
           placeholder="First Name"
           autoComplete="given-name"
         />
         <Input
-          value={value.lastName || ''}
-          update={this.updateLastName}
+          value={value.last || ''}
+          update={this.updateLast}
           validator={this.nameValidator}
           placeholder="Last Name"
           autoComplete="family-name"
@@ -123,8 +128,8 @@ class ContactForm extends Component {
           autoComplete="shipping street-address"
         />
         <Select
-          onChange={this.setSessionType}
-          value={value.sessionType || 'Studio Portrait'}
+          onChange={this.setSession}
+          value={value.session || 'Studio Portrait'}
         >
           <option value="Studio Portrait">Studio Portrait</option>
           <option value="Business Headshot">Business Headshot</option>
@@ -139,13 +144,22 @@ class ContactForm extends Component {
           validator={this.noValidation}
           placeholder="How did you hear about us?"
         />
+        <Input
+          value={value.comments || ''}
+          update={this.updateComments}
+          validator={this.noValidation}
+          placeholder="Do you have any other comments or questions?"
+        />
+        <Submit onClick={submit}>Send</Submit>
       </Form>
     );
   }
 }
 
 ContactForm.propTypes = {
-  value: PropTypes.object
+  value: PropTypes.object,
+  update: PropTypes.func,
+  submit: PropTypes.func
 };
 
 ContactForm.defaultProps = {};
