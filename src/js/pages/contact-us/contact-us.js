@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash/throttle';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 
 import './contact-us.scss';
 import * as Actions from '../../actions/contact-form';
@@ -11,6 +12,11 @@ import Disclaimer from '../../components/shared/disclaimer';
 import Form from './form';
 import Socials from './socials';
 import { postJSON } from '../../utilities/ajax';
+import withLoaderControls from '../../components/higher-order-components/with-loader-controls';
+import { IS_PRODUCTION } from '../../utilities/environment';
+const ENDPOINT = IS_PRODUCTION
+  ? 'http://api.jevinanderson.com/cats-eye-studios/contact'
+  : 'http://127.0.0.1:1985/cats-eye-studios/contact';
 
 const ContactCopy = ({ children }) => (
   <Copy className="contact-us__copy" centered>
@@ -25,16 +31,24 @@ class ContactUs extends Component {
 
   submit = event => {
     event.preventDefault();
+    this.props.startLoading();
 
-    postJSON(
-      'http://api.jevinanderson.com/cats-eye-studios/contact',
-      this.props.form
-    )
+    postJSON(ENDPOINT, this.props.form)
       .then(results => {
-        console.log('submit results', results);
+        this.props.setContactFormData({
+          ...this.props.form,
+          submitted: Date.now(),
+          error: undefined
+        });
+
+        this.props.stopLoading();
       })
       .catch(reason => {
-        console.log('subit reason', reason);
+        this.props.setContactFormData({
+          ...this.props.form,
+          error: 'There was an ERROR with your request. Please try again later.'
+        });
+        this.props.stopLoading();
       });
 
     console.log('submit this.props.form', this.props.form);
@@ -76,4 +90,6 @@ ContactUs.propTypes = {
 
 const mapStateToProps = state => ({ contactForm }) => ({ form: contactForm });
 
-export default connect(mapStateToProps, Actions)(ContactUs);
+export default compose(connect(mapStateToProps, Actions), withLoaderControls())(
+  ContactUs
+);

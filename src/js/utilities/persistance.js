@@ -3,6 +3,7 @@ const STATE_KEY = 'CATSEYESTUDIOS_REDUX_STATE';
 export const saveState = state => {
   try {
     const { loader, ...rest } = state;
+    delete rest.contactForm.error;
 
     const serializedState = JSON.stringify(rest);
     localStorage.setItem(STATE_KEY, serializedState);

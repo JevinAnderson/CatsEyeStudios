@@ -54,12 +54,26 @@ class Input extends PureComponent {
   };
 
   render() {
-    const { value, className, update, validator, formIsValid, setValidity, ...rest } = this.props;
+    const {
+      value,
+      className,
+      update,
+      validator,
+      formIsValid,
+      setValidity,
+      placeholder,
+      ...rest
+    } = this.props;
     const { messages, isValid, showMessages } = this.state;
     const { onBlur, onChange } = this;
 
     return (
       <span className={join('form-validation__input', className)}>
+        {placeholder && (
+          <p className="form-validation__input__placeholder">
+            {placeholder}
+          </p>
+        )}
         {showMessages &&
           !isValid && (
             <p className="form-validation__input__error-message">
@@ -68,6 +82,7 @@ class Input extends PureComponent {
           )}
         <input
           {...rest}
+          placeholder={placeholder}
           value={value}
           onChange={onChange}
           onBlur={onBlur}
