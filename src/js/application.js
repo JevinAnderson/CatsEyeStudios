@@ -10,6 +10,7 @@ import TheExperience from './pages/the-experience';
 import ContactUs from './pages/contact-us/contact-us';
 import Header from './components/header/header';
 import store from './utilities/store';
+import Loader from './components/loader/container';
 
 const Application = props => (
   <Provider store={store}>
@@ -24,6 +25,7 @@ const Application = props => (
           <Route path="/the-experience.html" exact component={TheExperience} />
           <Route path="/contact-us.html" exact component={ContactUs} />
         </Switch>
+        <Loader />
       </div>
     </BrowserRouter>
   </Provider>

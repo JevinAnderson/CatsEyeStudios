@@ -6,9 +6,10 @@ import Thunk from 'redux-thunk';
 
 import rootReducer from '../reducers/root';
 import { loadState, saveState } from './persistance';
+import { IS_DEVELOPMENT } from './environment';
 
 const middleware = [Thunk];
-if (process.env.NODE_ENV !== 'production') {
+if (IS_DEVELOPMENT) {
   middleware.push(createLogger({ collapsed: true }));
 }
 

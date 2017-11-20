@@ -1,2 +1,31 @@
 .contact-us__form {
+  margin: 1rem;
+}
+
+.contact-us__form__error {
+  color: red;
+}
+
+.contact-us__form__column {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.contact-us__form__placeholder {
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-us__form {
+    background-color: #292929;
+    padding: 1rem;
+  }
+
+  .contact-us__form__column {
+    width: 49%;
+    &:last-child {
+      margin-left: 2%;
+    }
+  }
 }

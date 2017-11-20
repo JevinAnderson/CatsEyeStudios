@@ -8,17 +8,15 @@ import {
 } from '../../components/form-validation/build-validator';
 import Form from '../../components/form-validation/form';
 import Input from '../../components/form-validation/input';
+import Submit from '../../components/form-validation/submit';
 import Select from '../../components/shared/select';
 
-class ContactForm extends Component {
-  // componentWillMount(){}
-  // componentDidMount(){}
-  // componentWillReceiveProps(nextProps) {}
-  // shouldComponentUpdate(nextProps, nextState) { return true; }
-  // componentWillUpdate(nextProps, nextState) {}
-  // componentDidUpdate(prevProps, prevState) {}
-  // componentWillUnmount() {}
+const Row = props => <div className="contact-us__form__row" {...props} />;
+const Column = props => <div className="contact-us__form__column" {...props} />;
 
+const SUBMISSION_WAIT = 7 * 24 * 60 * 60 * 1000;
+
+class ContactForm extends Component {
   constructor(props) {
     super(props);
 
@@ -32,12 +30,12 @@ class ContactForm extends Component {
     });
   };
 
-  updateFirstName = firstName => {
-    this.update('firstName', firstName);
+  updateFirst = first => {
+    this.update('first', first);
   };
 
-  updateLastName = lastName => {
-    this.update('lastName', lastName);
+  updateLast = last => {
+    this.update('last', last);
   };
 
   updateEmail = email => {
@@ -56,12 +54,23 @@ class ContactForm extends Component {
     this.update('contactPreference', value);
   };
 
-  setSessionType = ({ target: { value } }) => {
-    this.update('sessionType', value);
+  setSession = ({ target: { value } }) => {
+    this.update('session', value);
   };
 
-  updateReferer = referer => {
-    this.update('referer', referer);
+  updateReferrer = referrer => {
+    this.update('referrer', referrer);
+  };
+
+  updateComments = comments => {
+    this.update('comments', comments);
+  };
+
+  recentlySubmitted = () => {
+    return (
+      this.props.value.submitted &&
+      Date.now() - this.props.value.submitted < SUBMISSION_WAIT
+    );
   };
 
   noValidation = () => [];
@@ -69,83 +78,135 @@ class ContactForm extends Component {
   createNameValidator = () => Validator(isRequiredValidator).build();
 
   render() {
-    const { value } = this.props;
+    const { submit, value } = this.props;
+
+    if (this.recentlySubmitted()) {
+      return (
+        <div className="contact-us__form">
+          <h3>
+            Your request was submitted. Thanks for your interest. We hope to get
+            back to you shortly.
+          </h3>
+        </div>
+      );
+    }
+
     return (
       <Form className="contact-us__form" autoComplete="on">
-        <Input
-          value={value.firstName || ''}
-          update={this.updateFirstName}
-          validator={this.nameValidator}
-          placeholder="First Name"
-          autoComplete="given-name"
-        />
-        <Input
-          value={value.lastName || ''}
-          update={this.updateLastName}
-          validator={this.nameValidator}
-          placeholder="Last Name"
-          autoComplete="family-name"
-        />
-        <Input
-          value={value.email || ''}
-          update={this.updateEmail}
-          validator={this.nameValidator}
-          placeholder="Email"
-          autoComplete="email"
-          type="email"
-          name="email"
-          required
-        />
-        <Input
-          value={value.phone || ''}
-          update={this.updatePhone}
-          validator={this.nameValidator}
-          placeholder="Phone #"
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          required
-        />
-        <Select
-          onChange={this.setContactPreference}
-          value={value.contactPreference || 'call'}
-        >
-          <option value="call">Call (9am to 5pm Mon-Fri)</option>
-          <option value="text">Text</option>
-          <option value="email">Email</option>
-        </Select>
-        <Input
-          value={value.address || ''}
-          update={this.updateAddress}
-          validator={this.noValidation}
-          placeholder="Home address(optional)"
-          name="ship-address"
-          autoComplete="shipping street-address"
-        />
-        <Select
-          onChange={this.setSessionType}
-          value={value.sessionType || 'Studio Portrait'}
-        >
-          <option value="Studio Portrait">Studio Portrait</option>
-          <option value="Business Headshot">Business Headshot</option>
-          <option value="Lifestyle Portrait">Lifestyle Portrait</option>
-          <option value="Senior">Senior</option>
-          <option value="Couple">Couple</option>
-          <option value="Family">Family</option>
-        </Select>
-        <Input
-          value={value.referer || ''}
-          update={this.updateReferer}
-          validator={this.noValidation}
-          placeholder="How did you hear about us?"
-        />
+        {value.error && (
+          <h3 className="contact-us__form__error">{value.error}</h3>
+        )}
+        <Row>
+          <Column>
+            <Input
+              value={value.first || ''}
+              update={this.updateFirst}
+              validator={this.nameValidator}
+              placeholder="First Name"
+              autoComplete="given-name"
+            />
+          </Column>
+          <Column>
+            <Input
+              value={value.last || ''}
+              update={this.updateLast}
+              validator={this.nameValidator}
+              placeholder="Last Name"
+              autoComplete="family-name"
+            />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <Input
+              value={value.email || ''}
+              update={this.updateEmail}
+              validator={this.nameValidator}
+              placeholder="Email"
+              autoComplete="email"
+              type="email"
+              name="email"
+              required
+            />
+          </Column>
+          <Column>
+            <Input
+              value={value.phone || ''}
+              update={this.updatePhone}
+              validator={this.nameValidator}
+              placeholder="Phone #"
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              required
+            />
+          </Column>
+        </Row>
+        <Row>
+          <p className="contact-us__form__placeholder">
+            How would you like us to contact you?
+          </p>
+          <Select
+            onChange={this.setContactPreference}
+            value={value.contactPreference || 'call'}
+          >
+            <option value="call">Call (9am to 5pm Mon-Fri)</option>
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+          </Select>
+        </Row>
+        <Row>
+          <Input
+            value={value.address || ''}
+            update={this.updateAddress}
+            validator={this.noValidation}
+            placeholder="Home address(optional)"
+            name="ship-address"
+            autoComplete="shipping street-address"
+          />
+        </Row>
+        <Row>
+          <p className="contact-us__form__placeholder">
+            What sort of work are you looking to have done?
+          </p>
+          <Select
+            onChange={this.setSession}
+            value={value.session || 'Studio Portrait'}
+          >
+            <option value="Studio Portrait">Studio Portrait</option>
+            <option value="Business Headshot">Business Headshot</option>
+            <option value="Lifestyle Portrait">Lifestyle Portrait</option>
+            <option value="Senior">Senior</option>
+            <option value="Couple">Couple</option>
+            <option value="Family">Family</option>
+          </Select>
+        </Row>
+        <Row>
+          <Input
+            value={value.referrer || ''}
+            update={this.updateReferrer}
+            validator={this.noValidation}
+            placeholder="How did you hear about us?"
+          />
+        </Row>
+        <Row>
+          <Input
+            value={value.comments || ''}
+            update={this.updateComments}
+            validator={this.noValidation}
+            placeholder="Do you have any other comments or questions?"
+          />
+        </Row>
+        <Submit onClick={submit}>Send</Submit>
       </Form>
     );
   }
 }
 
 ContactForm.propTypes = {
-  value: PropTypes.object
+  value: PropTypes.object,
+  update: PropTypes.func,
+  submit: PropTypes.func
 };
 
 ContactForm.defaultProps = {};
