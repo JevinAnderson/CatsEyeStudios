@@ -143,6 +143,9 @@ class ContactForm extends Component {
           </Column>
         </Row>
         <Row>
+          <p className="contact-us__form__placeholder">
+            How would you like us to contact you?
+          </p>
           <Select
             onChange={this.setContactPreference}
             value={value.contactPreference || 'call'}
@@ -163,6 +166,9 @@ class ContactForm extends Component {
           />
         </Row>
         <Row>
+          <p className="contact-us__form__placeholder">
+            What sort of work are you looking to have done?
+          </p>
           <Select
             onChange={this.setSession}
             value={value.session || 'Studio Portrait'}

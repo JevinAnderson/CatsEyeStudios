@@ -1,6 +1,4 @@
 .contact-us__form {
-  padding: 1rem;
-  background-color: #292929;
   margin: 1rem;
 }
 
@@ -14,7 +12,16 @@
   width: 100%;
 }
 
-@media(min-width: 768px) {
+.contact-us__form__placeholder {
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-us__form {
+    background-color: #292929;
+    padding: 1rem;
+  }
+
   .contact-us__form__column {
     width: 49%;
     &:last-child {
