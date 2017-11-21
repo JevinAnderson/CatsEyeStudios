@@ -14,6 +14,7 @@ import Socials from './socials';
 import { postJSON } from '../../utilities/ajax';
 import withLoaderControls from '../../components/higher-order-components/with-loader-controls';
 import { IS_PRODUCTION } from '../../utilities/environment';
+import { postSuccess, postDanger } from '../../components/notifications';
 const ENDPOINT = IS_PRODUCTION
   ? 'http://api.jevinanderson.com/cats-eye-studios/contact'
   : 'http://127.0.0.1:1985/cats-eye-studios/contact';
@@ -42,6 +43,10 @@ class ContactUs extends Component {
         });
 
         this.props.stopLoading();
+        postSuccess(
+          'Success!',
+          'Thank you for your interest in Cats Eye Studios. Your contact request was successfully submitted. Please allow one to two weeks for a response.'
+        );
       })
       .catch(reason => {
         this.props.setContactFormData({
@@ -49,6 +54,10 @@ class ContactUs extends Component {
           error: 'There was an ERROR with your request. Please try again later.'
         });
         this.props.stopLoading();
+        postDanger(
+          'Error',
+          'Something went wrong with your contact request. We apologize for any inconvenience. Please try again at a later time.'
+        );
       });
 
     console.log('submit this.props.form', this.props.form);

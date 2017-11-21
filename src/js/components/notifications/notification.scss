@@ -1,0 +1,54 @@
+$transition: all 900ms ease;
+
+.notification-container {
+  transition: $transition;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  max-width: calc(100vw - 2rem);
+}
+
+.notification {
+  box-sizing: border-box;
+  transition: $transition;
+  padding: 1rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.notification--fading {
+  opacity: 0;
+}
+
+.notification--success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.notification--info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.notification--warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+.notification--danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.notification__notification-header,
+.notification__notification-message {
+  margin: 0;
+}
