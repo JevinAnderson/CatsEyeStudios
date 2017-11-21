@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import ready from 'ready-and-able';
 
 import NotificationContainer from './notfication-container';
-import Notification from './notification';
 
 let push;
 const register = x => {
