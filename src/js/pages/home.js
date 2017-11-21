@@ -5,11 +5,32 @@ import './home.scss';
 import Content from '../components/shared/content';
 import Copy from '../components/shared/copy';
 import Disclaimer from '../components/shared/disclaimer';
+import { postNotification } from '../components/notifications/index';
+
+const randomElement = arr => arr[Math.floor(Math.random() * arr.length)];
+
+const TYPES = ['success', 'info', 'warning', 'danger'];
+const HEADERS = ['Batman', 'Superman', 'Green Lantern'];
+const MESSAGES = [
+  `Because, I'm Batman.`,
+  `Look up in the sky! It's a bird. It's a plane. It's Superman!`,
+  `In brightest day, in blackest night, beware my power, Green Lantern's might!`
+];
+
+function postRandom() {
+  const type = randomElement(TYPES);
+  const header = randomElement(HEADERS);
+  const message = randomElement(MESSAGES);
+  const delay = 1000 * (Math.floor(Math.random() * 10) + 1);
+  const options = { type, header, message, delay };
+
+  postNotification(options);
+}
 
 const HomeCopy = ({ children }) => <Copy centered>{children}</Copy>;
 
 const Home = props => (
-  <div className="home-page">
+  <div className="home-page" onClick={postRandom}>
     <Content>
       <Disclaimer centered>
         We are working diligently to improve our website's aesthetics! In the
