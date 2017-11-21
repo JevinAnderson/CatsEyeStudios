@@ -4,17 +4,13 @@ import PropTypes from 'prop-types';
 import './notification.scss';
 
 class Notification extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    fading: true
+  };
 
-    this.state = {
-      fading: true
-    };
-  }
-  // componentWillMount(){}
   componentDidMount() {
     setTimeout(this.stopFading, 1);
-    this.timeout = setTimeout(this.dismiss, this.props.delay);
+    this.timeout = setTimeout(this.dismiss, this.props.delay || 5000);
   }
 
   stopFading = () => {
@@ -22,7 +18,12 @@ class Notification extends Component {
   };
 
   dismiss = () => {
-    this.props.dismiss(this.props.identifier);
+    if (this.dismissing) return;
+
+    this.setState({ fading: true });
+    setTimeout(() => {
+      this.props.dismiss(this.props.identifier);
+    }, 900);
   };
 
   onClick = event => {
@@ -33,13 +34,7 @@ class Notification extends Component {
     this.dismiss();
   };
 
-  // componentWillReceiveProps(nextProps) {}
-  // shouldComponentUpdate(nextProps, nextState) { return true; }
-  // componentWillUpdate(nextProps, nextState) {}
-  // componentDidUpdate(prevProps, prevState) {}
   componentWillUnmount() {
-    console.log('Notification componentWillUnmount this.props', this.props);
-
     clearTimeout(this.timeout);
   }
 
@@ -72,7 +67,5 @@ Notification.propTypes = {
   identifier: PropTypes.any,
   dismiss: PropTypes.func
 };
-
-Notification.defaultProps = {};
 
 export default Notification;

@@ -1,38 +1,48 @@
 import React from 'react';
 import { render } from 'react-dom';
+import ready from 'ready-and-able';
 
+import NotificationContainer from './notfication-container';
 import Notification from './notification';
 
-const notifications = [];
+let push;
+const register = x => {
+  push = x;
+};
 
-const getIdentifier = (() => {
-  let id = 0;
-
-  return () => id++ + 1;
-})();
-
-function dismiss(identifier) {
-  const index = notifications.findIndex(
-    element => element.identifier === identifier
-  );
-
-  if (index !== -1) {
-    const notification = notifications[index];
-    notifications.splice(index, 1);
-    document.body.removeChild(notification.node);
-  }
-}
-
-export function postNotification(options) {
-  if (typeof document === 'undefined') return;
-  console.log('postNotification options', options);
-
-  const identifier = getIdentifier();
+ready(() => {
   const node = document.createElement('div');
   document.body.appendChild(node);
-  notifications.push({ identifier, node });
+  render(<NotificationContainer register={register} />, node);
+});
 
-  const props = { ...options, identifier, dismiss };
+export function postNotification(options) {
+  if (!push) return;
 
-  render(<Notification {...props} />, node);
+  push(options);
+}
+
+export function quickPost(
+  header = '',
+  message = '',
+  type = 'success',
+  delay = 5000
+) {
+  postNotification({ header, message, type, delay });
+}
+
+export function postSuccess(header, message) {
+  quickPost(header, message, 'success');
+}
+
+export function postInfo(header, message) {
+  quickPost(header, message, 'info');
+}
+
+export function postWarning(header, message) {
+  quickPost(header, message, 'warning');
+}
+
+export function postDanger(header, message) {
+  quickPost(header, message, 'danger');
 }

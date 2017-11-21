@@ -1,18 +1,23 @@
 $transition: all 900ms ease;
 
-.notification {
+.notification-container {
   transition: $transition;
   position: fixed;
   top: 1rem;
   right: 1rem;
-  padding: 1rem;
   z-index: 100;
+  max-width: calc(100vw - 2rem);
+}
+
+.notification {
+  box-sizing: border-box;
+  transition: $transition;
+  padding: 1rem;
   border-width: 1px;
   border-style: solid;
   border-radius: 4px;
   opacity: 1;
-  max-width: calc(100vw - 2rem);
-  box-sizing: border-box;
+  margin-bottom: 1rem;
 }
 
 .notification--fading {
@@ -41,4 +46,9 @@ $transition: all 900ms ease;
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
+}
+
+.notification__notification-header,
+.notification__notification-message {
+  margin: 0;
 }
