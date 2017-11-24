@@ -24,10 +24,11 @@ const YourPhotographer = props => (
       <PageCopy>
         Two small, sweet children and a loving husband fill my heart and the
         corners of my residential studio in Mesa, Arizona. I know what beautiful
-        looks like and I specialize in making women and men of all ages see
-        their beauty through contemporary studio portraits. I want to photograph
-        every person who has ever looked in the mirror and thought, "I'm not
-        good enough" and prove them wrong.
+        looks like and I specialize in making women of all ages see their beauty
+        through contemporary studio portraits. I want to photograph every person
+        who has ever looked in the mirror and thought, "I'm not good enough" and
+        prove them wrong. I want to document and celebrate every year of your
+        life with you.
       </PageCopy>
       <PageCopy>
         I am currently servicing clients in the East Valley. Cities include but

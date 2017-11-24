@@ -11,7 +11,7 @@ const HomeCopy = ({ children }) => <Copy centered>{children}</Copy>;
 const Home = props => (
   <div className="home-page">
     <Content>
-      <Disclaimer centered>
+      <Disclaimer centered italic>
         We are working diligently to improve our website's aesthetics! In the
         meantime please browse our tabs for information about Cat, your
         personalized experience, and how to contact Cat's Eye Studios. If you
@@ -19,10 +19,10 @@ const Home = props => (
         searching for CatsEyeStudiosAZ.
       </Disclaimer>
       <HomeCopy>
-        When you partner with us, our goal is to help you find and bring out
-        your essence of today and preserve it for a lifetime. We believe that
-        every person needs to celebrate who they are and where they are right
-        now in their life. Every person deserves to exist in photographs!
+        When you partner with us, we will find your essence of today and
+        preserve it for a lifetime. We believe that every person needs to
+        celebrate who they are and where they are right now in their life by
+        existing in photographs!
       </HomeCopy>
       <HomeCopy>
         From your complimentary consultation to long after your artwork is

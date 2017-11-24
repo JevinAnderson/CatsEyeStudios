@@ -35,8 +35,8 @@ class Navigation extends Component {
               Home
             </Link>
             <Link to="/your-photographer.html">Meet Your Photographer</Link>
-            <Link to="/the-experience.html">Your Personalized Experience</Link>
-            <Link to="/contact-us.html">Contact Us</Link>
+            <Link to="/the-experience.html">The Experience</Link>
+            <Link to="/contact-us.html">Contact</Link>
           </div>
         </div>
         <div className="navigation__menu" onClick={toggle}>

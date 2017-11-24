@@ -66,6 +66,10 @@ class ContactForm extends Component {
     this.update('comments', comments);
   };
 
+  updateDate = date => {
+    this.update('date', date);
+  };
+
   recentlySubmitted = () => {
     return (
       this.props.value.submitted &&
@@ -143,6 +147,15 @@ class ContactForm extends Component {
           </Column>
         </Row>
         <Row>
+          <Input
+            type="date"
+            value={value.date || ''}
+            update={this.updateDate}
+            validator={this.noValidation}
+            placeholder="Desired Consultation Date"
+          />
+        </Row>
+        <Row>
           <p className="contact-us__form__placeholder">
             How would you like us to contact you?
           </p>
@@ -167,18 +180,21 @@ class ContactForm extends Component {
         </Row>
         <Row>
           <p className="contact-us__form__placeholder">
-            What sort of work are you looking to have done?
+            What are you interested in?
           </p>
           <Select
             onChange={this.setSession}
             value={value.session || 'Studio Portrait'}
           >
-            <option value="Studio Portrait">Studio Portrait</option>
-            <option value="Business Headshot">Business Headshot</option>
-            <option value="Lifestyle Portrait">Lifestyle Portrait</option>
-            <option value="Senior">Senior</option>
-            <option value="Couple">Couple</option>
-            <option value="Family">Family</option>
+            <option value="Contemporary Portrait">Contemporary Portrait</option>
+            <option value="Dream Photoshoot">Custom Photoshoot</option>
+            <option value="On Location Portrait">On Location Portrait</option>
+            <option value="Contemporary Portrait">Personal Branding</option>
+            <option value="Professional Headshot">Professional Headshot</option>
+            <option value="Corporate Volume Shoot">
+              Corporate Volume Shoot
+            </option>
+            <option value="Collaborative Shoot">Collaborative Shoot</option>
           </Select>
         </Row>
         <Row>
@@ -194,7 +210,7 @@ class ContactForm extends Component {
             value={value.comments || ''}
             update={this.updateComments}
             validator={this.noValidation}
-            placeholder="Do you have any other comments or questions?"
+            placeholder="Comments or questions?"
           />
         </Row>
         <Submit onClick={submit}>Send</Submit>

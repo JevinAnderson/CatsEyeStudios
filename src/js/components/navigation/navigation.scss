@@ -67,9 +67,12 @@ $transition: all 500ms ease;
 
 .navigation__menu {
   color: $active-color;
-  padding: 1rem;
+  padding: 0.5rem;
   float: right;
   cursor: pointer;
+  background-color: black;
+  margin: 0.5rem;
+  border-radius: 5px;
 }
 
 @media (min-width: 768px) {
