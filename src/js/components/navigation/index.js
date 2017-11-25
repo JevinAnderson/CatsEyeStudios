@@ -32,7 +32,7 @@ class Navigation extends Component {
         <div className={linkContainerClass} onClick={toggle}>
           <div className="navigation__links__inner-container">
             <Link to="/index.html" active={isHome}>
-              Home
+              Welcome
             </Link>
             <Link to="/your-photographer.html">Meet Your Photographer</Link>
             <Link to="/the-experience.html">The Experience</Link>

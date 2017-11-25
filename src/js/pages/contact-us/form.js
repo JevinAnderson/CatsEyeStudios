@@ -187,9 +187,10 @@ class ContactForm extends Component {
             value={value.session || 'Studio Portrait'}
           >
             <option value="Contemporary Portrait">Contemporary Portrait</option>
-            <option value="Dream Photoshoot">Custom Photoshoot</option>
+            <option value="Creative Portrait">Creative Portrait</option>
+            <option value="Custom Photoshoot">Custom Photoshoot</option>
             <option value="On Location Portrait">On Location Portrait</option>
-            <option value="Contemporary Portrait">Personal Branding</option>
+            <option value="Personal Branding">Personal Branding</option>
             <option value="Professional Headshot">Professional Headshot</option>
             <option value="Corporate Volume Shoot">
               Corporate Volume Shoot
