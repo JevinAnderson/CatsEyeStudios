@@ -188,7 +188,7 @@ class ContactForm extends Component {
           >
             <option value="Contemporary Portrait">Contemporary Portrait</option>
             <option value="Creative Portrait">Creative Portrait</option>
-            <option value="Custom Photoshoot">Custom Photoshoot</option>
+            <option value="Fantasy Photoshoot">Fantasy Photoshoot</option>
             <option value="On Location Portrait">On Location Portrait</option>
             <option value="Personal Branding">Personal Branding</option>
             <option value="Professional Headshot">Professional Headshot</option>

@@ -53,6 +53,4 @@ Navigation.propTypes = {
   })
 };
 
-Navigation.defaultProps = {};
-
 export default withRouter(Navigation);
