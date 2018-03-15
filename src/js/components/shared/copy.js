@@ -5,15 +5,7 @@ import './copy.scss';
 import { join } from '../../utilities/component';
 
 const Copy = ({ centered, children, className, ...rest }) => (
-  <p
-    className={join(
-      'shared-copy',
-      centered && 'shared-copy--centered',
-      className
-    )}
-  >
-    {children}
-  </p>
+  <p className={join('shared-copy', centered && 'shared-copy--centered', className)}>{children}</p>
 );
 
 Copy.propTypes = {

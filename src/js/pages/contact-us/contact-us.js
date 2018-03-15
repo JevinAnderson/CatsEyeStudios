@@ -71,15 +71,13 @@ class ContactUs extends Component {
       <div className="contact-us" onClick={this.onClick}>
         <Content>
           <ContactCopy>
-            I pride myself in building lasting
-            relationships with my clientele. To start our relationship, I’d love to
+            I pride myself in building lasting relationships with my clientele. To start our relationship, I’d love to
             meet you for a complimentary consultation!
           </ContactCopy>
           <ContactCopy>
-            We will get to know each other as we ask each other questions
-            and discuss the details of your session. Then we will go over
-            products that I offer and how and where you would like them
-            displayed in your home. We'll finalize your consulation by going over pricing, contract, and booking your session! Thank you for your
+            We will get to know each other as we ask each other questions and discuss the details of your session. Then
+            we will go over products that I offer and how and where you would like them displayed in your home. We'll
+            finalize your consulation by going over pricing, contract, and booking your session! Thank you for your
             consideration and I look forward to meeting you!
           </ContactCopy>
           <Form value={form} update={setContactFormData} submit={submit} />
@@ -97,6 +95,4 @@ ContactUs.propTypes = {
 
 const mapStateToProps = state => ({ contactForm }) => ({ form: contactForm });
 
-export default compose(connect(mapStateToProps, Actions), withLoaderControls())(
-  ContactUs
-);
+export default compose(connect(mapStateToProps, Actions), withLoaderControls())(ContactUs);

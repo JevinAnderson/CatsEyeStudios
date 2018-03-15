@@ -22,9 +22,7 @@ class NotificationContainer extends Component {
   dismiss = identifier => {
     this.setState(prevState => {
       const notifications = [...prevState.notifications];
-      const index = notifications.findIndex(
-        element => element.identifier === identifier
-      );
+      const index = notifications.findIndex(element => element.identifier === identifier);
 
       if (index !== -1) {
         notifications.splice(index, 1);
@@ -50,12 +48,7 @@ class NotificationContainer extends Component {
     return (
       <div className="notification-container">
         {notifications.map(({ identifier, options }) => (
-          <Notification
-            key={identifier}
-            identifier={identifier}
-            dismiss={dismiss}
-            {...options}
-          />
+          <Notification key={identifier} identifier={identifier} dismiss={dismiss} {...options} />
         ))}
       </div>
     );

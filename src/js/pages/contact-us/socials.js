@@ -4,21 +4,14 @@ import PropTypes from 'prop-types';
 import './socials.scss';
 
 const Row = props => <div className="contact-us__socials__row" {...props} />;
-const Column = props => (
-  <div className="contact-us__socials__column" {...props} />
-);
-const Anchor = props => (
-  <a className="contact-us__socials__anchor" {...props} />
-);
+const Column = props => <div className="contact-us__socials__column" {...props} />;
+const Anchor = props => <a className="contact-us__socials__anchor" {...props} />;
 
 const Socials = props => (
   <div className="contact-us__socials">
     <Row>
       <Column>
-        <Anchor
-          href="https://www.facebook.com/CatsEyeStudiosAZ/"
-          target="_blank"
-        >
+        <Anchor href="https://www.facebook.com/CatsEyeStudiosAZ/" target="_blank">
           <i className="fa fa-facebook" />Facebook
         </Anchor>
       </Column>

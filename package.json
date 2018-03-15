@@ -7,17 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
+    "prettier": "prettier --write ./README.md ./server.js ./webpack.config.js 'src/**/*.js' 'src/**/*.*css'",
     "dev": "npm run webpack",
     "sass": "node-sass src/scss/styles.scss docs/css/styles.css -w",
-    "webpack": "webpack --watch",
-    "build": "NODE_ENV='production' webpack -p"
-  },
-  "babel": {
-    "presets": [
-      "env",
-      "react",
-      "stage-2"
-    ]
+    "watch": "webpack -w --mode development",
+    "build": "NODE_ENV='production' webpack -p --mode production"
   },
   "repository": {
     "type": "git",
@@ -35,35 +29,37 @@
   },
   "homepage": "https://github.com/JevinAnderson/CatsEyeStudios#readme",
   "dependencies": {
-    "autoprefixer": "^7.1.6",
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
+    "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "css-loader": "^0.28.7",
-    "express": "^4.16.2",
-    "html-webpack-plugin": "^2.30.1",
-    "jquery": "^3.2.1",
-    "lodash": "^4.17.4",
+    "css-loader": "^0.28.10",
+    "express": "^4.16.3",
+    "html-webpack-plugin": "^3.0.6",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5",
     "lorem-ipsum": "^1.0.4",
     "morgan": "^1.9.0",
     "node-sass": "^4.7.2",
-    "postcss-loader": "^2.0.8",
-    "prop-types": "^15.6.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-redux": "^5.0.6",
+    "postcss-loader": "^2.1.1",
+    "prettier": "^1.11.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "ready-and-able": "^1.0.4",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "webpack": "^3.8.1"
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12"
   },
   "devDependencies": {}
 }

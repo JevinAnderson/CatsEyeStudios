@@ -118,7 +118,7 @@ $transition: all 500ms ease;
 
   .navigation__link:hover,
   .navigation__link--active {
-    &:after{
+    &:after {
       opacity: 1;
       transform: translateY(-6px);
       background-color: $active-color;

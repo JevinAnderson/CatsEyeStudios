@@ -21,12 +21,7 @@ export function postNotification(options) {
   push(options);
 }
 
-export function quickPost(
-  header = '',
-  message = '',
-  type = 'success',
-  delay = 5000
-) {
+export function quickPost(header = '', message = '', type = 'success', delay = 5000) {
   postNotification({ header, message, type, delay });
 }
 

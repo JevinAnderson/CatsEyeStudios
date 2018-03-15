@@ -5,13 +5,7 @@ import './content-header.scss';
 import { join } from '../../utilities/component';
 
 const ContentHeader = ({ centered, children, className, ...rest }) => (
-  <h2
-    className={join(
-      'shared-content-header',
-      centered && 'shared-content-header--centered',
-      className
-    )}
-  >
+  <h2 className={join('shared-content-header', centered && 'shared-content-header--centered', className)}>
     {children}
   </h2>
 );

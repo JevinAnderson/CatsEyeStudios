@@ -34,5 +34,4 @@ const Application = props => (
   </Provider>
 );
 
-
 export default Application;

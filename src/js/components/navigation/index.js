@@ -19,16 +19,11 @@ class Navigation extends Component {
     const { location: { pathname } } = this.props;
     const { state: { expanded }, toggle } = this;
     const isHome = pathname === '/' || pathname === '/index.html';
-    const linkContainerClass = join(
-      'navigation__links',
-      expanded && 'navigation__links--expanded'
-    );
+    const linkContainerClass = join('navigation__links', expanded && 'navigation__links--expanded');
 
     return (
       <div className="navigation">
-        {expanded && (
-          <div className="navigation__modal-background" onClick={this.toggle} />
-        )}
+        {expanded && <div className="navigation__modal-background" onClick={this.toggle} />}
         <div className={linkContainerClass} onClick={toggle}>
           <div className="navigation__links__inner-container">
             <Link to="/index.html" active={isHome}>

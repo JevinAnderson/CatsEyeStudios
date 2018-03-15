@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './form.scss';
-import {
-  isRequiredValidator,
-  Validator
-} from '../../components/form-validation/build-validator';
+import { isRequiredValidator, Validator } from '../../components/form-validation/build-validator';
 import Form from '../../components/form-validation/form';
 import Input from '../../components/form-validation/input';
 import Submit from '../../components/form-validation/submit';
@@ -71,10 +68,7 @@ class ContactForm extends Component {
   };
 
   recentlySubmitted = () => {
-    return (
-      this.props.value.submitted &&
-      Date.now() - this.props.value.submitted < SUBMISSION_WAIT
-    );
+    return this.props.value.submitted && Date.now() - this.props.value.submitted < SUBMISSION_WAIT;
   };
 
   noValidation = () => [];
@@ -87,19 +81,14 @@ class ContactForm extends Component {
     if (this.recentlySubmitted()) {
       return (
         <div className="contact-us__form">
-          <h3>
-            Your request was submitted. Thanks for your interest. We hope to get
-            back to you shortly.
-          </h3>
+          <h3>Your request was submitted. Thanks for your interest. We hope to get back to you shortly.</h3>
         </div>
       );
     }
 
     return (
       <Form className="contact-us__form" autoComplete="on">
-        {value.error && (
-          <h3 className="contact-us__form__error">{value.error}</h3>
-        )}
+        {value.error && <h3 className="contact-us__form__error">{value.error}</h3>}
         <Row>
           <Column>
             <Input
@@ -156,13 +145,8 @@ class ContactForm extends Component {
           />
         </Row>
         <Row>
-          <p className="contact-us__form__placeholder">
-            How would you like us to contact you?
-          </p>
-          <Select
-            onChange={this.setContactPreference}
-            value={value.contactPreference || 'call'}
-          >
+          <p className="contact-us__form__placeholder">How would you like us to contact you?</p>
+          <Select onChange={this.setContactPreference} value={value.contactPreference || 'call'}>
             <option value="call">Call (9am to 5pm Mon-Fri)</option>
             <option value="text">Text</option>
             <option value="email">Email</option>
@@ -179,22 +163,15 @@ class ContactForm extends Component {
           />
         </Row>
         <Row>
-          <p className="contact-us__form__placeholder">
-            What are you interested in?
-          </p>
-          <Select
-            onChange={this.setSession}
-            value={value.session || 'Studio Portrait'}
-          >
+          <p className="contact-us__form__placeholder">What are you interested in?</p>
+          <Select onChange={this.setSession} value={value.session || 'Studio Portrait'}>
             <option value="Contemporary Portrait">Contemporary Portrait</option>
             <option value="Creative Portrait">Creative Portrait</option>
             <option value="Fantasy Photoshoot">Fantasy Photoshoot</option>
             <option value="On Location Portrait">On Location Portrait</option>
             <option value="Personal Branding">Personal Branding</option>
             <option value="Professional Headshot">Professional Headshot</option>
-            <option value="Corporate Volume Shoot">
-              Corporate Volume Shoot
-            </option>
+            <option value="Corporate Volume Shoot">Corporate Volume Shoot</option>
             <option value="Collaborative Shoot">Collaborative Shoot</option>
           </Select>
         </Row>

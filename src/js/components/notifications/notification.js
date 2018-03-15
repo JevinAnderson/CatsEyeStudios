@@ -48,12 +48,8 @@ class Notification extends Component {
 
     return (
       <div className={this.getClassName()} onClick={this.onClick}>
-        {header && (
-          <h3 className="notification__notification-header">{header}</h3>
-        )}
-        {message && (
-          <p className="notification__notification-message">{message}</p>
-        )}
+        {header && <h3 className="notification__notification-header">{header}</h3>}
+        {message && <p className="notification__notification-message">{message}</p>}
       </div>
     );
   }

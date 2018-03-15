@@ -6,11 +6,7 @@ import { join } from '../../utilities/component';
 import asAnObserver from './as-an-observer';
 
 const Submit = ({ formIsValid, className, ...rest }) => (
-  <button
-    className={join('form-validation__submit', className)}
-    disabled={!formIsValid}
-    {...rest}
-  />
+  <button className={join('form-validation__submit', className)} disabled={!formIsValid} {...rest} />
 );
 
 Submit.propTypes = {

@@ -1,5 +1,4 @@
-export const randomNumberLessThan = (max = 100) =>
-  Math.floor(Math.random() * max);
+export const randomNumberLessThan = (max = 100) => Math.floor(Math.random() * max);
 
 const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 const uppercase = lowercase.toUpperCase();

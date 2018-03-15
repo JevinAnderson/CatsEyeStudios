@@ -1,7 +1,4 @@
-export const createStringLengthValidator = (min = 0, max) => (
-  value,
-  messages = []
-) => {
+export const createStringLengthValidator = (min = 0, max) => (value, messages = []) => {
   const length = value.length;
 
   if (length < min) {

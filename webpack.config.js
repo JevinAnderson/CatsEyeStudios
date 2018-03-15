@@ -15,8 +15,8 @@ const config = {
   module: {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
-      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader'] }
+      { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
+      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader'] }
     ]
   },
   plugins: [
@@ -24,25 +24,12 @@ const config = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
       }
-    }),
+    })
   ]
 };
 
-if (IS_PRODUCTION) {
-  config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin()
-  );
-} else {
-  // config.devServer = {
-  //   historyApiFallback: true
-  // };
+if (!IS_PRODUCTION) {
   config.devtool = 'eval-source-map';
-
-  // config.plugins.push(
-  //   new HtmlWebpackPlugin({
-  //     template: 'src/index.html'
-  //   })
-  // );
 }
 
 module.exports = config;
