@@ -68,7 +68,7 @@ class ContactUs extends Component {
     const { submit } = this;
 
     return (
-      <div className="contact-us" onClick={this.onClick}>
+      <div className="contact-us main-background" onClick={this.onClick}>
         <Content>
           <ContactCopy>
             I pride myself in building lasting relationships with my clientele. To start our relationship, I’d love to

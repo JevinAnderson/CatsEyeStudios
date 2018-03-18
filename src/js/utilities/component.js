@@ -1,4 +1,8 @@
-export const join = (...args) => args.filter(arg => arg).join(' ');
+export const join = (...args) =>
+  args
+    .filter(Boolean)
+    .map(String)
+    .join(' ');
 export const merge = (...args) => Object.assign({}, ...args);
 export const dangerous = __html => ({ __html });
 export const bind = (context, ...methods) => {

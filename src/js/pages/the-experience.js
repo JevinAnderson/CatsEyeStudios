@@ -16,7 +16,7 @@ const PageCopy = ({ children }) => (
 );
 
 const TheExperience = props => (
-  <div className="the-experience">
+  <div className="the-experience main-background">
     <Content>
       <SubHeader>Your Consultation</SubHeader>
       <PageCopy>

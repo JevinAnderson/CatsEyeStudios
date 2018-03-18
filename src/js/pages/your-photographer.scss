@@ -1,6 +1,17 @@
-.your-photographer__portrait {
-  width: 100%;
-  max-width: 368px;
+.your-photographer__collage {
+  transition: all 1000ms ease;
+  opacity: 0;
   display: block;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  margin: auto;
+}
+
+.your-photographer__collage--loaded {
+  opacity: 1;
+}
+
+.main-content-section.your-photographer__content {
   margin: auto;
 }

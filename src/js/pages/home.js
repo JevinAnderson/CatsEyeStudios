@@ -11,7 +11,7 @@ const HomeCopy = ({ children }) => <Copy centered>{children}</Copy>;
 const FadeIn = props => <SimpleFadeIn duration={5000} {...props} />;
 
 const Home = props => (
-  <div className="home-page">
+  <div className="home-page main-background">
     <Content className="home-page-content">
       <FadeIn>
         <HomeCopy>
