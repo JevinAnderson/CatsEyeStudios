@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import Navigation from './components/navigation';
 import Home from './pages/home';
-import YourPhotographer from './pages/your-photographer';
+import YourPhotographer from './pages/your-photographer/your-photographer';
 import TheExperience from './pages/the-experience';
 import ContactUs from './pages/contact-us/contact-us';
 import Header from './components/header/header';

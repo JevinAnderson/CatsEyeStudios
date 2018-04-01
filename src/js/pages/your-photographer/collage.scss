@@ -1,0 +1,36 @@
+.your-photographer__collage {
+  transition: all 1000ms ease;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  max-width: 768px;
+  height: auto;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.your-photographer__collage--loaded {
+  opacity: 1;
+}
+
+.your-photographer__collage__image {
+  vertical-align: middle;
+  height: auto;
+  width: 30%;
+  background: white;
+  box-sizing: border-box;
+  padding: 5%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.your-photographer__collage__image--main {
+  width: 40%;
+}
+
+@media (min-width: 768px) {
+  .your-photographer__collage {
+    margin: 3rem auto 0;
+    padding: 1rem 0;
+    background: transparent;
+  }
+}

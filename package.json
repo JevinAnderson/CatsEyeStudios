@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prettier": "prettier --write ./README.md ./server.js ./webpack.config.js 'src/**/*.js' 'src/**/*.*css'",
-    "dev": "npm run webpack",
+    "dev": "npm run watch",
     "sass": "node-sass src/scss/styles.scss docs/css/styles.css -w",
     "watch": "webpack -w --mode development",
     "build": "NODE_ENV='production' webpack -p --mode production"
