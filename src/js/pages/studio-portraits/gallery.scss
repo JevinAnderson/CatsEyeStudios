@@ -1,0 +1,23 @@
+.studio-portraits__gallery {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+.studio-portraits__gallery__photo-container {
+}
+
+.studio-portraits__gallery__photo {
+  max-height: 210px;
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .studio-portraits__gallery {
+    margin-top: 0;
+  }
+}
