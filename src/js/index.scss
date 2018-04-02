@@ -1,3 +1,8 @@
+html {
+  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  background: black;
+}
+
 html,
 input,
 select {
@@ -12,6 +17,6 @@ body {
 }
 
 .main-background {
-  background: url('/images/site-background.png') no-repeat center center fixed;
+  background: url('/images/Site_background-landscape.jpg') no-repeat center center fixed;
   background-size: cover;
 }
