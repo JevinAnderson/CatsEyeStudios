@@ -1,6 +1,6 @@
 import shuffle from 'lodash/shuffle';
 
-export const images = shuffle([
+export const images = [
   {
     src: 'images/portraits/1.jpg',
     w: 3265,
@@ -81,11 +81,11 @@ export const images = shuffle([
     w: 3265,
     h: 4898
   },
-  // {
-  //   src: 'images/portraits/17.jpg',
-  //   w: 4898,
-  //   h: 3265
-  // },
+  {
+    src: 'images/portraits/17.jpg',
+    w: 4898,
+    h: 3265
+  },
   {
     src: 'images/portraits/18.jpg',
     w: 3265,
@@ -126,7 +126,7 @@ export const images = shuffle([
     w: 3265,
     h: 4898
   }
-]).map(image => ({
+].map(image => ({
   ...image,
   msrc: image.src.replace(/\.jpg$/, 'a.jpg')
 }));

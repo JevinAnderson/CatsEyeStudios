@@ -4,7 +4,42 @@ import images from './images';
 import options from './options';
 import Gallery from './gallery';
 
+import './studio-portraits.scss';
+
 class OnLocation extends Component {
+  componentDidMount() {
+    $('.studio-portraits__gallery').slick({
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  }
+
   onClick = event => {
     event.preventDefault();
     const element = event.target;
@@ -16,7 +51,7 @@ class OnLocation extends Component {
 
   render() {
     return (
-      <div className="on-location main-background">
+      <div className="studio-portraits main-background">
         <Gallery onClick={this.onClick} />
         <div
           className="pswp"
