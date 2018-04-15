@@ -48,10 +48,6 @@ class YourPhotographer extends Component {
           thought, "I'm not good enough" and prove them wrong. I want to document and celebrate every year of your life
           with you.
         </PageCopy>
-        <PageCopy>
-          I am currently servicing clients in the East Valley. Cities include but are not limited to: Mesa, Gilbert,
-          Chandler, Scottsdale, Tempe.
-        </PageCopy>
         <PageCopy>I look forward to working with you!</PageCopy>
       </Content>
     </div>
