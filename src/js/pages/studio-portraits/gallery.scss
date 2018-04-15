@@ -18,8 +18,12 @@
   height: auto;
 }
 
-@media (min-width: 768px) {
-  // .studio-portraits__gallery {
-  //   margin-top: 0;
-  // }
+.studio-portraits__gallery-image {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.25rem;
+  vertical-align: middle;
+  height: auto;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }

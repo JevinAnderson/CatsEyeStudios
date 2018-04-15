@@ -3,42 +3,28 @@ import PropTypes from 'prop-types';
 import images from './images';
 import options from './options';
 import Gallery from './gallery';
+import throttle from 'lodash/throttle';
 
 import './studio-portraits.scss';
 
 class OnLocation extends Component {
+  state = {
+    containerWidth: Math.min(window.innerWidth, 1024)
+  };
+
   componentDidMount() {
-    $('.studio-portraits__gallery').slick({
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
+    window.addEventListener('resize', this.resize);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize);
+  }
+
+  resize = throttle(event => {
+    this.setState({
+      containerWidth: Math.min(window.innerWidth, 1024)
+    });
+  }, 1000);
 
   onClick = event => {
     event.preventDefault();
@@ -52,7 +38,7 @@ class OnLocation extends Component {
   render() {
     return (
       <div className="studio-portraits main-background">
-        <Gallery onClick={this.onClick} />
+        <Gallery onClick={this.onClick} {...this.state} />
         <div
           className="pswp"
           tabIndex="-1"
