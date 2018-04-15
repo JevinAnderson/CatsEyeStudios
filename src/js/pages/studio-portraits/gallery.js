@@ -86,8 +86,8 @@ class Gallery extends Component {
   imageGroup = group =>
     group.map(image => (
       <img
-        key={image.src}
-        src={image.src}
+        key={image.msrc}
+        src={image.msrc}
         onClick={this.props.onClick}
         data-image-index={image.index}
         className="studio-portraits__gallery-image"
