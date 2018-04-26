@@ -12,6 +12,15 @@ const FadeIn = props => <SimpleFadeIn duration={5000} {...props} />;
 
 const Home = props => (
   <div className="home-page main-background">
+    <iframe
+      className="home-page-video"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/QPs-kv1d7X0?rel=0&autoplay=1"
+      frameBorder="0"
+      allow="autoplay; encrypted-media"
+      allowFullScreen
+    />
     <Content className="home-page-content">
       <FadeIn>
         <HomeCopy>

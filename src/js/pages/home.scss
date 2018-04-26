@@ -2,7 +2,14 @@
 }
 
 .home-page-content.home-page-content {
-  max-width: 300px;
+  max-width: 560px;
+}
+
+.home-page-video {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
 }
 
 .home-page__logo {
@@ -15,6 +22,15 @@
 
 @media (min-width: 768px) {
   .home-page-content.home-page-content {
-    max-width: 450px;
+    max-width: 560px;
+    margin: auto;
+    box-sizing: border-box;
+  }
+
+  .home-page-video {
+    width: 560px;
+    height: 316px;
+    margin: 3rem auto 0;
+    padding-top: 1rem;
   }
 }
