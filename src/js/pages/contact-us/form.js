@@ -126,69 +126,21 @@ class ContactForm extends Component {
             <Input
               value={value.phone || ''}
               update={this.updatePhone}
-              validator={this.nameValidator}
+              validator={this.noValidation}
               placeholder="Phone #"
               name="phone"
               type="tel"
               autoComplete="tel"
-              required
             />
           </Column>
         </Row>
         <Row>
           <Input
-            type="date"
-            value={value.date || ''}
-            update={this.updateDate}
-            validator={this.noValidation}
-            placeholder="Desired Consultation Date"
-          />
-        </Row>
-        <Row>
-          <p className="contact-us__form__placeholder">How would you like us to contact you?</p>
-          <Select onChange={this.setContactPreference} value={value.contactPreference || 'call'}>
-            <option value="call">Call (9am to 5pm Mon-Fri)</option>
-            <option value="text">Text</option>
-            <option value="email">Email</option>
-          </Select>
-        </Row>
-        <Row>
-          <Input
-            value={value.address || ''}
-            update={this.updateAddress}
-            validator={this.noValidation}
-            placeholder="Home address(optional)"
-            name="ship-address"
-            autoComplete="shipping street-address"
-          />
-        </Row>
-        <Row>
-          <p className="contact-us__form__placeholder">What are you interested in?</p>
-          <Select onChange={this.setSession} value={value.session || 'Studio Portrait'}>
-            <option value="Contemporary Portrait">Contemporary Portrait</option>
-            <option value="Creative Portrait">Creative Portrait</option>
-            <option value="Fantasy Photoshoot">Fantasy Photoshoot</option>
-            <option value="On Location Portrait">On Location Portrait</option>
-            <option value="Personal Branding">Personal Branding</option>
-            <option value="Professional Headshot">Professional Headshot</option>
-            <option value="Corporate Volume Shoot">Corporate Volume Shoot</option>
-            <option value="Collaborative Shoot">Collaborative Shoot</option>
-          </Select>
-        </Row>
-        <Row>
-          <Input
-            value={value.referrer || ''}
-            update={this.updateReferrer}
-            validator={this.noValidation}
-            placeholder="How did you hear about us?"
-          />
-        </Row>
-        <Row>
-          <Input
             value={value.comments || ''}
             update={this.updateComments}
-            validator={this.noValidation}
-            placeholder="Comments or questions?"
+            validator={this.nameValidator}
+            placeholder="Your message:"
+            required
           />
         </Row>
         <Submit onClick={submit}>Send</Submit>

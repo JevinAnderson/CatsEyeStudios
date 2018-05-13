@@ -45,7 +45,7 @@ class ContactUs extends Component {
         this.props.stopLoading();
         postSuccess(
           'Success!',
-          'Thank you for your interest in Cats Eye Studios. Your contact request was successfully submitted. Please allow one to two weeks for a response.'
+          'Thank you for your interest in Cats Eye Studios! Your message was received. We will get back to within 2 business days.'
         );
       })
       .catch(reason => {
