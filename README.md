@@ -1,18 +1,20 @@
 # CatsEyeStudios
 
 ## To View in code
-1. Open the github client
-2. Under the repository menu
-3. Open in Visual Studio Code
+
+1.  Open the github client
+2.  Under the repository menu
+3.  Open in Visual Studio Code
 
 ## Command Prompt vs terminal
-1. I'll use these terms interchangebly 
+
+1.  I'll use these terms interchangebly
 
 ## Installation
 
-1. Under the repository menu
-2. open command prompt
-3. npm install 
+1.  Under the repository menu
+2.  open command prompt
+3.  npm install
 
 ## Running locally
 

@@ -23,7 +23,7 @@ const Socials = props => (
     </Row>
     <Row>
       <Column>
-        <Anchor href="mailto:info@catseyestudios.com">
+        <Anchor href="mailto:hello@catseyestudios.com">
           <i className="fa fa-envelop" /> Email
         </Anchor>
       </Column>

@@ -1,12 +1,16 @@
+@font-face {
+  font-family: 'Goudy';
+  src: url('/fonts/Goudy\ Old\ Style\ Regular.ttf') format('truetype');
+}
+
 html {
-  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
-  background: black;
 }
 
 html,
 input,
 select {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Goudy', Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  background: black;
   font-size: 22px;
   color: white;
   font-weight: 200;
@@ -14,6 +18,10 @@ select {
 
 body {
   margin: 0;
+}
+
+.center {
+  text-align: center;
 }
 
 .main-background {
