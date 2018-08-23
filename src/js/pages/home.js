@@ -13,7 +13,7 @@ const Home = props => (
       className="home-page-video"
       width="560"
       height="315"
-      src="https://www.youtube.com/embed/QPs-kv1d7X0?rel=0&autoplay=1"
+      src="https://www.youtube.com/embed/4oHPpU7G1WY?rel=0&autoplay=1"
       frameBorder="0"
       allow="autoplay; encrypted-media"
       allowFullScreen
